@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
 import {
-    MenuIcon,
-    SearchIcon,
-    ShoppingCartIcon,    
-} from "@heroicons/react/outline"
+    Bars3Icon,
+    MagnifyingGlassIcon,
+    ShoppingBagIcon,
+} from "@heroicons/react/24/outline"
 
 const Header = () => {
   return (
@@ -25,7 +25,7 @@ const Header = () => {
 
             <div className="bg-yellow-500 hover:bg-yellow-600 cursor-pointer sm:flex items-center h-10 rounded-md flex-grow" >
                 <input type="text" className='p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4'/>
-                <SearchIcon className='h-12 p-4'/>
+                <MagnifyingGlassIcon className='h-12 p-4'/>
             </div>
 
             <div className="text-white flex items-center text-xs space-x-6 ms-6 whitespace-nowrap">
@@ -40,7 +40,7 @@ const Header = () => {
                 <div className="relative link flex items-center">
                     <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-500 text-center rounded-full text-black'>0</span>
 
-                    <ShoppingCartIcon className='h-10'/>
+                    <ShoppingBagIcon className='h-10'/>
                     <p className='hidden md:inline font-extrabold md:text-sm'>Basket</p>
                 </div>
             </div>
@@ -48,7 +48,7 @@ const Header = () => {
 
         <div className="flex items-center space-x-3 p-2 pl-6 bg-amazon_blue-light text-white text-sm">
             <p className='link flex items-center'>
-                <MenuIcon className='h-6 mr1'/>
+                <Bars3Icon className='h-6 mr1'/>
                 All
             </p>
             <p className="link">Prime Video</p>

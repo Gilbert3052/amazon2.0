@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { StarIcon } from "@heroicons/react/solid"
+import { StarIcon } from "@heroicons/react/24/solid"
 import Currency from "react-currency-formatter"
 
 const Product = ({ id, title, price, description, category, image, rating }) => {
