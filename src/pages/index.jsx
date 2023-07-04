@@ -33,13 +33,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export async function getserverSideProps(products) {
-//     return {
-//       props: {
-//         products: products,
-//       }
-//     }
-// }
-
-// GET https://fakestoreapi.com/products

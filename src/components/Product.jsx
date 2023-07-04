@@ -2,8 +2,12 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { StarIcon } from "@heroicons/react/24/solid"
 import Currency from "react-currency-formatter"
+import { useDispatch } from 'react-redux'
+import { addToBasket } from '@/slices/basketSlice'
 
 const Product = ({ id, title, price, description, category, image, rating }) => {
+
+    const dispatch = useDispatch()
 
     const [hasPrime] = useState(Math.random() < 0.5)
 
@@ -19,6 +23,23 @@ const Product = ({ id, title, price, description, category, image, rating }) => 
         const roundedNumber = Math.round(toNumber);
         setRate_(roundedNumber - 1);
       }
+
+      const addItemToBasket = () => {
+        const product = {
+            id, 
+            title, 
+            price, 
+            description, 
+            category, 
+            image,
+            rate_,
+            hasPrime,
+        }
+
+        dispatch(addToBasket(product))
+      }
+
+
   return (
     <div className='relative flex flex-col m-5 bg-white z-30 p-10'>
         <p className='absolute top-2 right-2 text-xs italic text-gray-400'>{category}</p>
@@ -40,7 +61,6 @@ const Product = ({ id, title, price, description, category, image, rating }) => 
                 .map((_, i) => (
                     <StarIcon key={i} className='h-5 text-yellow-500' />
                 ))
-            
             }
             
         </div>
@@ -53,12 +73,16 @@ const Product = ({ id, title, price, description, category, image, rating }) => 
 
         {hasPrime && (
             <div className="flex items-center space-x-2">
-                <img className='w-12' src='https://assets.stickpng.com/images/5f7f75fa3dd424000436e50e.png' alt='prime' />
+                <img className='w-12' 
+                    loading='lazy'
+                    src='https://assets.stickpng.com/images/5f7f75fa3dd424000436e50e.png' 
+                    alt='prime' 
+                />
                 <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
             </div>
         )}
 
-        <button className='mt-4 button'>Add to Basket</button>
+        <button onClick={addItemToBasket} className='mt-4 button'>Add to Basket</button>
     </div>
   )
 }

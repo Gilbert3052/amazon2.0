@@ -1,12 +1,34 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Bars3Icon,
     MagnifyingGlassIcon,
     ShoppingBagIcon,
 } from "@heroicons/react/24/outline"
+import { signIn, signOut, useSession } from "next-auth/react"
+import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+import { selectItems } from '@/slices/basketSlice'
 
 const Header = () => {
+
+    const {data: session, status} = useSession()
+    const [userName, setUserName] = useState("Hello Guest")
+    const router = useRouter()
+    const items = useSelector(selectItems)
+
+
+    useEffect(() => {
+        if (status === "authenticated") {
+            setUserName(`hello, ${session.user.name}`)
+          } else {
+            setUserName("Hello Guest")
+          }
+    }, [status])
+    
+    
+    
+
   return (
     <header> 
         
@@ -14,6 +36,7 @@ const Header = () => {
             
             <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
                 <Image 
+                    onClick={() => router.push('/')}
                     src="https://links.papareact.com/f90"
                     width={150}
                     height={40}
@@ -29,16 +52,18 @@ const Header = () => {
             </div>
 
             <div className="text-white flex items-center text-xs space-x-6 ms-6 whitespace-nowrap">
-                <div className="link ">
-                    <p>Hello Gilbert Angulo</p>
+                <div onClick={status !== "authenticated" ? signIn : signOut} className="link">
+                    <p className='hover:underline'>
+                        {userName}
+                    </p>
                     <p className='font-extrabold md:text-sm'>Account & List</p>
                 </div>
                 <div className="link ">
                     <p>Returns</p>
                     <p className='font-extrabold md:text-sm'>& Orders</p>
                 </div>
-                <div className="relative link flex items-center">
-                    <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-500 text-center rounded-full text-black'>0</span>
+                <div onClick={() => router.push('/checkout')} className="relative link flex items-center">
+                    <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-500 text-center rounded-full text-black'>{items.length}</span>
 
                     <ShoppingBagIcon className='h-10'/>
                     <p className='hidden md:inline font-extrabold md:text-sm'>Basket</p>
