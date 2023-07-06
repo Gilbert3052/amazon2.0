@@ -9,7 +9,7 @@ import { useSession } from 'next-auth/react'
 import { loadStripe } from '@stripe/stripe-js'
 
 const stripePromise = loadStripe(
-  process.env.stripe_public_key
+  `${process.env.stripe_public_key}`
 )
 
 const checkout = () => {
