@@ -4,7 +4,7 @@ const nextConfig = {
         domains: ["links.papareact.com", "fakestoreapi.com", "https://www.stickpng.com"]
     },
     env: {
-        NEXTAUTH_SECRET: 'Ey7nTKnggBc0bRN8WUjyShw2qzOZ6KW4fUyqcKBePxY=',
+        NEXTAUTH_SECRET: 'iBFdGWYZa+2o/BPw7wmRIZljYm2ObSp/2x6LN1GI/fs=',
     },
 }
 
