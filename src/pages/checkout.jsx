@@ -6,12 +6,27 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import Currency from 'react-currency-formatter'
 import { useSession } from 'next-auth/react'
+import { loadStripe } from '@stripe/stripe-js'
+
+const stripePromise = loadStripe(
+  process.env.stripe_public_key
+)
 
 const checkout = () => {
 
   const items = useSelector(selectItems)
   const total = useSelector(selectTotal)
   const {data: session, status} = useSession()
+
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise
+
+    const CheckoutSession = await axios.post('/api/checkout_sessions', 
+    {
+      items: items,
+      email: session.user.email
+    })
+  }
 
 
   return (
@@ -67,6 +82,8 @@ const checkout = () => {
               </h2>
 
               <button 
+                role='link'
+                onClick={createCheckoutSession}
                 disabled={
                   status === "authenticated"}
                 className={`button mt-2 ${

@@ -4,8 +4,10 @@ const nextConfig = {
         domains: ["links.papareact.com", "fakestoreapi.com", "https://www.stickpng.com"]
     },
     env: {
-        NEXTAUTH_SECRET: 'iBFdGWYZa+2o/BPw7wmRIZljYm2ObSp/2x6LN1GI/fs=',
+        NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+        stripe_public_key: process.env.STRIPE_PUBLIC_KEY
     },
+
 }
 
 module.exports = nextConfig
