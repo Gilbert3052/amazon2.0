@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
+import { Secret } from "next-auth/jwt"
 
 export const authOptions = {
   // Configure one or more authentication providers
