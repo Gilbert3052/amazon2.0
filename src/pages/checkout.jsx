@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import Currency from 'react-currency-formatter'
 import { useSession } from 'next-auth/react'
 import { loadStripe } from '@stripe/stripe-js'
+import axios from 'axios'
 
 const stripePromise = loadStripe(
   `${process.env.stripe_public_key}`
@@ -26,6 +27,14 @@ const checkout = () => {
       items: items,
       email: session.user.email
     })
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: CheckoutSession.data.id
+    })
+
+    if(result.error) {
+      alert(result.error.message)
+    }
   }
 
 
@@ -83,7 +92,7 @@ const checkout = () => {
 
               <button 
                 role='link'
-                onClick={createCheckoutSession}
+                onClick={createCheckoutSession() + console.log("asd")}
                 disabled={
                   status === "authenticated"}
                 className={`button mt-2 ${
