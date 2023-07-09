@@ -29,7 +29,7 @@ const fulfillOrder = async (session) => {
             timestamp: admin.firestore.FieldValue.serverTimestamp()
         })
         .then(() => {
-            console.log(`Succes: Order ${session.id} had been added to the DB`);
+            console.log(`Success: Order ${session.id} had been added to the DB`);
         })
 }
 

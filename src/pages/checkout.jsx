@@ -1,5 +1,5 @@
-import CheckoutProduct from '@/components/CheckoutProduct'
-import Header from '@/components/Header'
+import CheckoutProduct from '@/components/CheckoutProduct/index'
+import Header from '@/components/Header/index'
 import { selectItems, selectTotal } from '@/slices/basketSlice'
 import Image from 'next/image'
 import React from 'react'
@@ -92,7 +92,7 @@ const checkout = () => {
 
               <button 
                 role='link'
-                onClick={createCheckoutSession() + console.log("asd")}
+                onClick={createCheckoutSession() && console.log('')}
                 disabled={
                   status === "authenticated"}
                 className={`button mt-2 ${

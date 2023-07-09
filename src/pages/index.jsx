@@ -1,6 +1,6 @@
-import Banner from "@/components/Banner";
-import Header from "@/components/Header";
-import ProductFeed from "@/components/ProductFeed";
+import Banner from "@/components/Banner/index";
+import Header from "@/components/Header/index";
+import ProductFeed from "@/components/ProductFeed/index";
 import axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";

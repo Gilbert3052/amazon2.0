@@ -2,9 +2,9 @@ import Header from '@/components/Header'
 import React from 'react'
 import { useSession } from 'next-auth/react'
 import { moment } from 'moment'
-import { db } from '../../../firebase'
+import { db } from '../../firebase'
 
-const Orders = (/*{orders}*/) => {
+const orders = (/*{orders}*/) => {
 
     // const {data: session, status} = useSession()
 
@@ -37,7 +37,7 @@ const Orders = (/*{orders}*/) => {
   )
 }
 
-export default Orders
+export default orders
 
 // export async function getServerSideProps(context) {
 //     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
