@@ -22,6 +22,8 @@ const checkout = () => {
   const createCheckoutSession = async () => {
     const stripe = await stripePromise
 
+    console.log('Funciona')
+
     const CheckoutSession = await axios.post('/api/checkout_sessions', 
     {
       items: items,
@@ -92,7 +94,7 @@ const checkout = () => {
 
               <button 
                 role='link'
-                onClick={createCheckoutSession() && console.log('')}
+                onClick={createCheckoutSession}
                 disabled={
                   status === "authenticated"}
                 className={`button mt-2 ${
