@@ -94,7 +94,7 @@ const checkout = () => {
 
               <button 
                 role='link'
-                onClick={createCheckoutSession}
+                onClick={() => createCheckoutSession()}
                 disabled={
                   status === "authenticated"}
                 className={`button mt-2 ${
