@@ -10,11 +10,11 @@ const orders = () => {
 
     const {data: session, status} = useSession()
 
-    const query = collection(db, `users/${session?.user.email}/orders`)
+    // const query = collection(db, `users/${session?.user.email}/orders`)
 
-    const [docs, loading, error] = useCollectionData(query)
+    // const [docs, loading, error] = useCollectionData(query)
 
-    console.log(docs);
+    // console.log(docs);
 
   return (
     <div>
