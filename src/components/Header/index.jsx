@@ -46,7 +46,7 @@ const Header = () => {
                 />
             </div>
 
-            <div className="bg-yellow-500 hover:bg-yellow-600 cursor-pointer sm:flex items-center h-10 rounded-md flex-grow" >
+            <div className="bg-yellow-500 hover:bg-yellow-600 cursor-pointer  sm:flex items-center h-10 rounded-md flex-grow xs:visibility: hidden" >
                 <input type="text" className='p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4'/>
                 <MagnifyingGlassIcon className='h-12 p-4'/>
             </div>
