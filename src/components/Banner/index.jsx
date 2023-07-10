@@ -10,6 +10,7 @@ const Banner = () => {
             autoPlay={true}
             infiniteLoop={true}
             showStatus={false}
+            showArrows={false}
             showIndicators={false}
             showThumbs={false}
             interval={5000}
