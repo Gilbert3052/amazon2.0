@@ -53,7 +53,7 @@ const CheckoutProduct = ({ id, title, price, description, category, image, rate_
             <p className="text-xs my-2 line-clamp-3">
                 {description}
             </p>
-            <Currency quantity={price} currency='GBP'/>
+            <Currency quantity={price} currency='USD'/>
             {hasPrime && (
                 <div className="flex items-center space-x-2">
                     <img className='w-12' src='https://www.logo.wine/a/logo/Amazon_Prime/Amazon_Prime-Logo.wine.svg' alt='prime' />
