@@ -7,7 +7,6 @@ const nextConfig = {
         NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
         stripe_public_key: process.env.STRIPE_PUBLIC_KEY
     },
-
 }
 
 module.exports = nextConfig

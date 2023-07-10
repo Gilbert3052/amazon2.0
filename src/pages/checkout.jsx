@@ -19,7 +19,7 @@ const checkout = () => {
   const total = useSelector(selectTotal)
   const {data: session, status} = useSession()
 
-  const createCheckoutSession = async () => {
+  const createCheckoutSession = async function() {
     const stripe = await stripePromise
 
     const CheckoutSession = await axios.post('/api/checkout_sessions', 
@@ -89,12 +89,11 @@ const checkout = () => {
                 <Currency quantity={total} currency='GBP'/>
               </span>
               </h2>
-
               <button 
                 role='link'
-                onClick={createCheckoutSession() && console.log('')}
+                onClick={createCheckoutSession}
                 disabled={
-                  status === "authenticated"}
+                  status !== "authenticated"}
                 className={`button mt-2 ${
                   status !== "authenticated"
                   ? "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
@@ -108,6 +107,7 @@ const checkout = () => {
               </button>
             </>
           )}
+              
         </div>
       </main>
     </div>

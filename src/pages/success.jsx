@@ -33,19 +33,3 @@ const Success = () => {
 
 export default Success
 
-
-// const express = require('express');
-// const app = express();
-
-// // Set your secret key. Remember to switch to your live secret key in production.
-// // See your keys here: https://dashboard.stripe.com/apikeys
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
-// app.get('/order/success', async (req, res) => {
-//   const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
-//   const customer = await stripe.customers.retrieve(session.customer);
-
-//   res.send(`<html><body><h1>Thanks for your order, ${customer.name}!</h1></body></html>`);
-// });
-
-// app.listen(4242, () => console.log(`Listening on port ${4242}!`));

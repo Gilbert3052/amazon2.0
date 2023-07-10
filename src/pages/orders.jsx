@@ -1,14 +1,20 @@
 import Header from '@/components/Header'
 import React from 'react'
-import { useSession } from 'next-auth/react'
+import { getSession, useSession } from 'next-auth/react'
 import { moment } from 'moment'
 import { db } from '../../firebase'
+import { collection, doc, orderBy , query} from "@firebase/firestore"; 
+import { useCollectionData } from 'react-firebase-hooks/firestore'
 
-const orders = (/*{orders}*/) => {
+const orders = () => {
 
-    // const {data: session, status} = useSession()
+    const {data: session, status} = useSession()
 
-    // console.log(orders);
+    const query = collection(db, `users/${session?.user.email}/orders`)
+
+    const [docs, loading, error] = useCollectionData(query)
+
+    console.log(docs);
 
   return (
     <div>
@@ -17,7 +23,7 @@ const orders = (/*{orders}*/) => {
             <h1 className='text-3xl border-b mb-2 pb-1 border-yellow-400'>
                 Your Orders
             </h1>
-{/* 
+
             {
                 status === "authenticated"
                 ? (
@@ -26,7 +32,7 @@ const orders = (/*{orders}*/) => {
                 : (
                     <h2>Please Sign In to see your orders</h2>
                 )
-            } */}
+            }
 
             <div className="mt-5 space-y-4 ">
 
@@ -42,22 +48,32 @@ export default orders
 // export async function getServerSideProps(context) {
 //     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
-//     const {data: session, status} = await getSession(context)
+//     const session = await getSession(context)
 
 //     if(!session) {
 //         return {
 //             props: {}
 //         }
 //     }
-//     const stripeOrders = await db
-//         .collection('users')
-//         .doc(session.user.email)
-//         .collection('orders')
-//         .orderBy("timestamp", "desc")
-//         .get()
+//     // const stripeOrders = await db
+//     //     .collection('users')
+//     //     .doc(session.user.email)
+//     //     .collection(db, 'orders')
+//     //     .orderBy("timestamp", "desc")
+//     //     .get()
+
+//     const collection1 = collection(db, 'users')
+//     const doc1 = doc(collection1, session.user.email)
+//     const collection2 = collection(doc1, 'orders')
+//     const doc2 = doc(collection2)
+//     const orderBy1 = query(collection2, orderBy("timestamp", "desc"))
+//     // const stripeOrders = get(orderBy1)
+
+
+
 
 //     const orders = await Promise.all(
-//         stripeOrders.docs.map(async (order) => ({
+//         doc(collection2, map(async (order) => ({
 //             id: order.id,
 //             amount: order.data().amount,
 //             amountShipping: order.data().amount_shipping,
@@ -68,7 +84,7 @@ export default orders
 //                     limit: 100, 
 //                 })
 //             ).data,
-//         }))
+//         })))
 //     )
 
 //     return {
