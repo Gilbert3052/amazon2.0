@@ -56,7 +56,7 @@ const CheckoutProduct = ({ id, title, price, description, category, image, rate_
             <Currency quantity={price} currency='GBP'/>
             {hasPrime && (
                 <div className="flex items-center space-x-2">
-                    <img className='w-12' src='https://assets.stickpng.com/images/5f7f75fa3dd424000436e50e.png' alt='prime' />
+                    <img className='w-12' src='https://www.logo.wine/a/logo/Amazon_Prime/Amazon_Prime-Logo.wine.svg' alt='prime' />
                     <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
                 </div>
             )}

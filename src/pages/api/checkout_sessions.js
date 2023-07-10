@@ -18,10 +18,6 @@ export default async (req, res) => {
   }))
 
   const session = await stripe.checkout.sessions.create({
-    // shipping_rates: ['shr_1NRFj9CCe3nDtlIo7kqfKoo2'],
-    // shipping_address_collection: {
-    //   allow_countries: ['GB', 'US', "CA"]
-    // },
     line_items: transformedItems,
     mode: 'payment',
     success_url: `${process.env.HOST}/success?session_id={CHECKOUT_SESSION_ID}`,

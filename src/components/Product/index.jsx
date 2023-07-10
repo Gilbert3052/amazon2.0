@@ -71,16 +71,16 @@ const Product = ({ id, title, price, description, category, image, rating }) => 
             <Currency quantity={price} currency='GBP'/>
         </div>
 
-        {/* {hasPrime && (
+        {hasPrime && (
             <div className="flex items-center space-x-2">
                 <img className='w-12' 
                     loading='lazy'
-                    src='https://assets.stickpng.com/images/5f7f75fa3dd424000436e50e.png' 
+                    src='https://www.logo.wine/a/logo/Amazon_Prime/Amazon_Prime-Logo.wine.svg' 
                     alt='prime' 
                 />
                 <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
             </div>
-        )} */}
+        )}
 
         <button onClick={addItemToBasket} className='mt-4 button'>Add to Basket</button>
     </div>
