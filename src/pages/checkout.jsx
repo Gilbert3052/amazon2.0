@@ -86,7 +86,7 @@ const checkout = () => {
             <>
               <h2>Subtotal ({items.length} items):{' '}
               <span className='font-bold'>
-                <Currency quantity={total} currency='GBP'/>
+                <Currency quantity={total} currency='USD'/>
               </span>
               </h2>
               <button 
