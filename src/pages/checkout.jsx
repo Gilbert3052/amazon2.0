@@ -22,6 +22,8 @@ const checkout = () => {
   const createCheckoutSession = async function() {
     const stripe = await stripePromise
 
+    console.log('Funciona')
+
     const CheckoutSession = await axios.post('/api/checkout_sessions', 
     {
       items: items,
